@@ -132,21 +132,8 @@ resource "aws_api_gateway_gateway_response" "missing_authentication_token" {
 resource "aws_api_gateway_domain_name" "main" {
   domain_name     = var.domain_name
   security_policy = var.security_policy
-
-  dynamic "regional_certificate_arn" {
-    for_each = var.endpoint_type == "REGIONAL" ? [1] : []
-    content {
-      regional_certificate_arn = var.regional_certificate_arn
-    }
-  }
-
-  dynamic "certificate_arn" {
-    for_each = var.endpoint_type == "EDGE" ? [1] : []
-    content {
-      certificate_arn = var.certificate_arn
-    }
-  }
-
+  regional_certificate_arn = var.endpoint_type == "REGIONAL" ? var.regional_certificate_arn : null
+  certificate_arn = var.endpoint_type == "EDGE" ? var.certificate_arn : null
   endpoint_configuration {
     types = [var.endpoint_type]
   }
