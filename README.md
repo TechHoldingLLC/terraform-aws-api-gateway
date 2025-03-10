@@ -41,11 +41,13 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_apigw_name"></a> [apigw\_name](#input\_apigw\_name) | API Gateway name | `string` | n/a | yes |
 | <a name="input_binary_media_types"></a> [binary\_media\_types](#input\_binary\_media\_types) | List of binary media types supported by the REST API | `list(string)` | `null` | no |
-| <a name="input_certificate_arn"></a> [certificate\_arn](#input\_certificate\_arn) | arn for acm certificate | `string` | n/a | yes |
+| <a name="input_certificate_arn"></a> [certificate\_arn](#input\_certificate\_arn) | arn for acm certificate containing an edge apigw | `string` | `null` | no |
 | <a name="input_data_trace_enabled"></a> [data\_trace\_enabled](#input\_data\_trace\_enabled) | Whether data trace logging is enabled for this method | `bool` | `false` | no |
 | <a name="input_domain_name"></a> [domain\_name](#input\_domain\_name) | apigateway domain name | `string` | n/a | yes |
+| <a name="input_endpoint_type"></a> [endpoint\_type](#input\_endpoint\_type) | Type of the API Gateway | `string` | n/a | yes |
 | <a name="input_logging_level"></a> [logging\_level](#input\_logging\_level) | Logging level for this method: 'OFF','ERROR', 'INFO' | `string` | `"INFO"` | no |
 | <a name="input_metrics_enabled"></a> [metrics\_enabled](#input\_metrics\_enabled) | Whether Amazon CloudWatch metrics are enabled for this method | `bool` | `true` | no |
+| <a name="input_regional_certificate_arn"></a> [regional\_certificate\_arn](#input\_regional\_certificate\_arn) | arn for acm certificate containing a regional apigw | `string` | `null` | no |
 | <a name="input_retention_in_days"></a> [retention\_in\_days](#input\_retention\_in\_days) | The number of days to retain log events in the Access and Execution Log groups | `number` | `30` | no |
 | <a name="input_security_policy"></a> [security\_policy](#input\_security\_policy) | Transport Layer Security(TLS) version + cipher suite for this DomainName | `string` | `"TLS_1_2"` | no |
 | <a name="input_stage_name"></a> [stage\_name](#input\_stage\_name) | Apigateway stage name | `string` | n/a | yes |
@@ -64,6 +66,7 @@ No modules.
 | <a name="output_execution_arn"></a> [execution\_arn](#output\_execution\_arn) | n/a |
 | <a name="output_id"></a> [id](#output\_id) | n/a |
 | <a name="output_name"></a> [name](#output\_name) | n/a |
+| <a name="output_regional_domain_name"></a> [regional\_domain\_name](#output\_regional\_domain\_name) | n/a |
 | <a name="output_root_resource_id"></a> [root\_resource\_id](#output\_root\_resource\_id) | n/a |
 | <a name="output_stage_arn"></a> [stage\_arn](#output\_stage\_arn) | n/a |
 | <a name="output_stage_name"></a> [stage\_name](#output\_stage\_name) | n/a |
