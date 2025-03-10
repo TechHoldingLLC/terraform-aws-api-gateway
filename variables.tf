@@ -82,5 +82,4 @@ variable "throttling_rate_limit" {
 variable "endpoint_type" {
   description = "Type of the API Gateway"
   type        = string
-  default     = "REGIONAL"
 }
