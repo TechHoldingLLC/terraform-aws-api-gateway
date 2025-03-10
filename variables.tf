@@ -9,8 +9,15 @@ variable "apigw_name" {
 }
 
 variable "certificate_arn" {
-  description = "arn for acm certificate"
+  description = "arn for acm certificate containing an edge apigw"
   type        = string
+  default     = null
+}
+
+variable "regional_certificate_arn" {
+  description = "arn for acm certificate containing a reginal apigw"
+  type        = string
+  default     = null
 }
 
 variable "domain_name" {
@@ -70,4 +77,10 @@ variable "throttling_rate_limit" {
   description = "The number of allowed requests per second"
   type        = number
   default     = null
+}
+
+variable "endpoint_type" {
+  description = "Type of the API Gateway"
+  type        = string
+  default     = "REGIONAL"
 }

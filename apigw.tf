@@ -9,6 +9,9 @@ resource "aws_api_gateway_rest_api" "main" {
   name                     = var.apigw_name
   minimum_compression_size = -1
   binary_media_types       = var.binary_media_types
+  endpoint_configuration {
+    types = [var.endpoint_type]
+  }
 }
 
 #-----------------------------------
@@ -128,8 +131,25 @@ resource "aws_api_gateway_gateway_response" "missing_authentication_token" {
 #-----------------------------------
 resource "aws_api_gateway_domain_name" "main" {
   domain_name     = var.domain_name
-  certificate_arn = var.certificate_arn
   security_policy = var.security_policy
+
+  dynamic "regional_certificate_arn" {
+    for_each = var.endpoint_type == "REGIONAL" ? [1] : []
+    content {
+      regional_certificate_arn = var.regional_certificate_arn
+    }
+  }
+
+  dynamic "certificate_arn" {
+    for_each = var.endpoint_type == "EDGE" ? [1] : []
+    content {
+      certificate_arn = var.certificate_arn
+    }
+  }
+
+  endpoint_configuration {
+    types = [var.endpoint_type]
+  }
 }
 
 #---------------------------------------
