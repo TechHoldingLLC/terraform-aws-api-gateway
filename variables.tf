@@ -15,7 +15,7 @@ variable "certificate_arn" {
 }
 
 variable "regional_certificate_arn" {
-  description = "arn for acm certificate containing a reginal apigw"
+  description = "arn for acm certificate containing a regional apigw"
   type        = string
   default     = null
 }
