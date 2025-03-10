@@ -130,10 +130,10 @@ resource "aws_api_gateway_gateway_response" "missing_authentication_token" {
 # APIGW Gateway Domain Configuration
 #-----------------------------------
 resource "aws_api_gateway_domain_name" "main" {
-  domain_name     = var.domain_name
-  security_policy = var.security_policy
+  domain_name              = var.domain_name
+  security_policy          = var.security_policy
   regional_certificate_arn = var.endpoint_type == "REGIONAL" ? var.regional_certificate_arn : null
-  certificate_arn = var.endpoint_type == "EDGE" ? var.certificate_arn : null
+  certificate_arn          = var.endpoint_type == "EDGE" ? var.certificate_arn : null
   endpoint_configuration {
     types = [var.endpoint_type]
   }
